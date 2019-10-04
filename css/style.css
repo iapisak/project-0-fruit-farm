@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Notable', sans-serif;
+    color: rgb(223, 110, 17);
+    letter-spacing: 3px; 
+}
+
+html {
+    background-image: url('../image/bg1.jpg');
+    background-repeat: none;
+    background-size: cover;
+}
+
+body {
+    margin: 40px auto;
+}
+
+.wrap {
+    background-color: rgba(34, 32, 32, 0.3);
+}
+
+header {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.score-count {
+    padding: 10px;
+    flex-grow: 1;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
+.score-game {
+    flex-grow: 1;
+}
+
+.player-name {
+    flex-grow: 1;
+}
+
+main {
+    position: relative;
+    margin: 0 auto;
+    width: 360px;
+    height: 700px;
+    background-color: rgba(29, 26, 26, 0.3);
+    border-radius: 10px;
+}
+
+.main-menu {
+    margin: 0 auto;
+    width: 360px;
+    height: 700px;
+    background-color: rgba(148, 57, 57, 0.3);
+    border-radius: 10px;
+}
+
+img {
+    width: 70px;
+}
+
+footer {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.time-section {
+    flex: 1;
+}
+
+.round-section {
+    flex: 1;
+}
+
+.move {
+    margin: 0 10px;
+    width: 50px;
+    background-size: cover;
+    position: absolute;
+    animation-name: drop-item;
+    animation-fill-mode: forwards;
+}
+
+@keyframes drop-item {
+    10% {transform: translateY(0px)}
+    20% {transform: translateY(70px)}
+    30% {transform: translateY(140px)}
+    40% {transform: translateY(210px)}
+    50% {transform: translateY(280px)}
+    60% {transform: translateY(350px)}
+    70% {transform: translateY(420px)}
+    80% {transform: translateY(470px)}
+    90% {transform: translateY(560px)}
+    100% {transform: translateY(640px)}
+}
+
+.animation-3 {
+    animation-duration: 3s;
+}
+
+
+.animation-5 {
+    animation-duration: 5s;
+}
+
+.animation-7 {
+    animation-duration: 7s;
+}
