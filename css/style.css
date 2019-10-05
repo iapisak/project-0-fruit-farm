@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Notable', sans-serif;
+    /* font-family: 'Notable', sans-serif; */
+    font-family: 'Courier New', Courier, monospace;
     color: rgb(223, 110, 17);
     letter-spacing: 3px; 
 }

@@ -1,54 +1,48 @@
-// Main Menu Features
-
 const game = []
-
 class Player {
     constructor(name) {
         this.name = name
-        this.score = 0
-        this.total = 0
-        this.level = 0
+        this.score = []
+        this.level = 1
     }
 }
-
-$('#player-list').on('submit', function(event) {
-    event.preventDefault()
-    const name = $('#create-name').val()
-    const player = new Player(name)
-    game.push(player)
-    const playlistTemplate = `
-    <div>
-        <div>Name: ${player.name} Level: ${player.level} Score: ${player.score} Total: ${player.total}</div>
-        <button class='start-game'>Start Game</button>
-    </div>`
-    $('#list').append(playlistTemplate)
-    $('.start-game').on('click', function(fffff) {
-        console.log('hello')
-        // startGame()
-    })
-})
-
-
-// Game Features
 const fruits = [
     {name: 'Grapes', src: './image/Grape.png'},
     {name: 'Banana', src: './image/Banana.png'},
     {name: 'Strawberry', src: './image/Strawberry.png'},
     {name: 'Watermelon', src: './image/Watermelon.png'}
 ]
-    
-let score = 0
-let level = 1
+
+// const playerOne = new Player()
+// const playerTwo = new Player()
 let time = 15
 let createId = 0
 let removeFruits
+let score = 0
+let total = 0
+let level = 1
 
-// Accept Player Name and More Player
-// Count Play Round
-// Next Another Level
-// Animated must not be overlap
-// Make Animated center
-// Remove all Animated when the gmae done and remove it when hit to height length
+// ============ Main Menu Features ============== //
+
+$('#player-list').on('submit', function(event) {
+    event.preventDefault()
+    let playerId = game.length
+    const player = new Player($('#create-name').val())
+    game.push(player)
+    const playlistTemplate = `
+    <div>
+        <div>Name: ${player.name} Level: ${player.level} Score: ${player.score} Total: ${player.total}</div>
+        <button id="player-${playerId}">Start Game</button>
+    </div>`
+    $('#list').append(playlistTemplate)
+    $(`#player-${playerId}`).on('click', function() {
+        let currentPlayer = this.id.split("-")[1]
+        console.log(currentPlayer)
+        startGame(currentPlayer)
+    })
+})
+
+// Game Features
 
 function getLength (lengthOfStartDrop) {
     if (lengthOfStartDrop === 0) {
@@ -85,8 +79,7 @@ function createFruits () {
     }
 
     templateFruits.attr("style", `left: ${getLength(lengthOfStartDrop)}px`)
-
-    $('main').append(templateFruits)
+    $('#game-board').append(templateFruits)
 
     // Remove this fruits when it drop after 8s // or after hit the ground
     setTimeout(()=> {
@@ -96,45 +89,55 @@ function createFruits () {
     // Add EventListenr when click get score and remove it
     $(`#${createId}`).on('click', function(event) {
         score++
-        $('#score-section p').text(`Pick Fruit: ${score+1}`)
-        $(event.target).remove()
+        $('#score-section p').text(`Pick Fruit: ${score}`)
+        $(this).remove()
     })
     createId++
 }
 
-function setTimer () {
+function setTimer (player) {
     const timer = setInterval(()=> {
         time--
         updateTime()
         if (time > 0){
             createFruits()
         } else {
+            $('#game-board').children().remove()
+            game[player].score.push(score)
+            // playerOne.score.push(score)
+            // playerOne.level++
+            // console.log(playerOne)
             clearInterval(timer)
-            $('main div').toggle('#main-menu')
-            level++       
+            // $('#main-menu').show()
+            $('#main-menu').toggle()
+            if (level>3) {
+                return level=1
+            } else {
+                // level++
+            }   
         }
     }, 800)
 }
 
-function startGame () {
-    $('#main-menu').css("display", "none")
-    $('#level-section p').text(`Level : ${level}`)
-    setTimer()
-    score = 0
-    time = 15
-    createId = 0
-}
-
-//Update Time on game board
 function updateTime () {
     const $timer = $('#timer')
     $timer.text(`timer: ${time}s`)
 }
 
+function resetScore () {
+    score = 0
+    time = 15
+}
 
-
-//Reset game
-// ========================================================== 
+function startGame (player) {
+    $('#main-menu').toggle()
+    $('#level-section p').text(`Level : ${level}`)
+    setTimer(player)
+    resetScore()
+}
 
 // Step (2) -------------- Event Listener ------------------- //
 
+$('#player-one').on('click', function() {
+    startGame(playerOne)
+})
