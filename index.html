@@ -4,46 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Notable&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Fredericka+the+Great|Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
     <script defer src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/app.js"></script>
     <title>Project-Zero</title>
 </head>
 <body>
-    <div class='wrap'>
-        <header>
-        <section id='score-section' class='score-count'>
-            <p>Pick Fruit: 0</p>
-        </section>
-        <section class='score-game'>
-            <h1>Score Game section</h1>
-        </section>
-        <section class='player-name'>
-                
-        </section>
-        </header>
-    </div>
-        <main>
-            <div id='main-menu'>
-                <form id="player-list">
-                    <div><input id="create-name" type="text"><button type="submit">Add Player</button></div>
-                </form>
-                <div id="list"></div>
-            </div>
-            <div id='game-board'></div>
-        </main>        
-    <div class='wrap'>
-        <footer>
-            <section id='timer' class='time-section'>
-                <h1>Time</h1>
-                
+        
+    <div class='container'>
+        <aside>
+            <section class='logo'>
+                <h1>Fruits Farm</h1>
             </section>
-            <section id='level-section' class='round-section'>
-                <p>Level 0</p>
-                <button id='player-one'><h1>Player One</h1></button>
-            </section>
-        </footer>
+            <button id="create-player"><span>Player</span></button>
+            <button><span>Score</span></button>
+            <button id="read"><span>Read Me</span></button>
+        </aside>
+
+        <div class='wrap'>
+            <!-- /* -----------------------Header------------------------------ */ -->
+            <header>
+                <section id='score-section' class='score-count'>
+                    <p>Score : 0</p>
+                </section>        
+                <section id='timer' class='time-section'>
+                    <p>Time : ----- </p>
+                </section>
+            </header>
+            <!-- /* -----------------------Main------------------------------ */ -->
+            <main>
+                <div id='main-menu' class='create-player-menu'>
+                    <h2>Create Player</h2>
+                    <form id="player-list" class='form-create' autocomplete="off">
+                        <input id="create-name" class='input-player' type="text">
+                        <button type="submit" class='add-player'> Add Player </button>
+                    </form>
+                    <div id="list" class='list-player'></div>
+                </div>
+                <div id='game-board' class='board'></div>
+                <div class='read-me'>
+                    <h1>Read me</h1>
+                </div>
+            </main> 
+            <!-- /* -----------------------Footer------------------------------ */ -->
+            <footer>
+                <section id='player' class='player-name'>Player : ----- </section>
+                <section id='level-section' class='round-section'>
+                    <p>Level 0</p>
+                </section>
+            </footer>
+        </div>
     </div>
 
 </body>

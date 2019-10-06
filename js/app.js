@@ -2,7 +2,7 @@ const game = []
 class Player {
     constructor(name) {
         this.name = name
-        this.score = []
+        this.score = 0
         this.level = 1
     }
 }
@@ -13,9 +13,7 @@ const fruits = [
     {name: 'Watermelon', src: './image/Watermelon.png'}
 ]
 
-// const playerOne = new Player()
-// const playerTwo = new Player()
-let time = 15
+let time = 30
 let createId = 0
 let removeFruits
 let score = 0
@@ -23,17 +21,17 @@ let total = 0
 let level = 1
 
 // ============ Main Menu Features ============== //
-
 $('#player-list').on('submit', function(event) {
     event.preventDefault()
     let playerId = game.length
     const player = new Player($('#create-name').val())
     game.push(player)
     const playlistTemplate = `
-    <div>
-        <p>${player.name} Score: ${player.score}<p>
-        <button id="player-${playerId}">Start Game</button>
-    </div>`
+        <div class='group'>
+            <p>- ${game[playerId].name} -</p>
+            <p id='current-score-${playerId}'>Score : ${game[playerId].score}</p>
+            <button id="player-${playerId}" class="start-game">Start</button>
+        </div>`
     $('#list').append(playlistTemplate)
     $(`#player-${playerId}`).on('click', function() {
         let currentPlayer = this.id.split("-")[1]
@@ -42,18 +40,17 @@ $('#player-list').on('submit', function(event) {
 })
 
 // Game Features
-
 function getLength (lengthOfStartDrop) {
     if (lengthOfStartDrop === 0) {
-        return lengthOfStartDrop = 0
+        return lengthOfStartDrop = 10
     } else if (lengthOfStartDrop === 1) {
-        return lengthOfStartDrop = 85
+        return lengthOfStartDrop = 90
     } else if (lengthOfStartDrop === 2) {
         return lengthOfStartDrop = 170
     } else if (lengthOfStartDrop === 3) {
-        return lengthOfStartDrop = 255
+        return lengthOfStartDrop = 240
     } else {
-        return lengthOfStartDrop=340
+        return lengthOfStartDrop=320
     }
 }
 
@@ -62,25 +59,20 @@ function getLength (lengthOfStartDrop) {
 function createFruits (player) {
     // Make new variable to get ID to remove after
     const currentFruitId = createId;   
-    let lengthOfStartDrop = Math.floor(Math.random()*fruits.length)
-
-    const templateImage = `<image src="${fruits[`${level-1}`].src}" width="50px">`
-
-
+    let lengthOfStartDrop = Math.floor(Math.random()*5)
+    let randomFruits = Math.floor(Math.random()*fruits.length)
+    const templateImage = `<image src="${fruits[`${randomFruits}`].src}" width="50px">`
     const templateFruits = $(`<div id='${createId}' class='move'>${templateImage}</div>`)
-
-
     // Need to change Logic
-
     if (game[player].level === 1) {
         templateFruits.addClass('animation-7')
-        removeFruits = 7000
+        removeFruits = 6000
     } else if (game[player].level === 2) {
         templateFruits.addClass('animation-5')
-        removeFruits = 5000
+        removeFruits = 4500
     } else {
-        templateFruits.addClass('animation-3')
-        removeFruits = 3000
+        templateFruits.addClass('animation-4')
+        removeFruits = 3500
     }
 
     templateFruits.attr("style", `left: ${getLength(lengthOfStartDrop)}px`)
@@ -94,24 +86,10 @@ function createFruits (player) {
     // Add EventListenr when click get score and remove it
     $(`#${createId}`).on('click', function(event) {
         score++
-        $('#score-section p').text(`Pick Fruit: ${score}`)
+        $('#score-section p').text(`Score : ${score}`)
         $(this).remove()
     })
     createId++
-}
-
-function checkLevel (player) {
-    
-    if (game[player].level === 1) {
-        templateFruits.addClass('animation-7')
-        removeFruits = 7000
-    } else if (game[player].level === 2) {
-        templateFruits.addClass('animation-5')
-        removeFruits = 5000
-    } else {
-        templateFruits.addClass('animation-3')
-        removeFruits = 3000
-    }
 }
 
 function setTimer (player) {
@@ -122,18 +100,16 @@ function setTimer (player) {
             createFruits(player)
         } else {
             $('#game-board').children().remove()
-            game[player].score.push(score)
+            game[player].score+=score
             game[player].level++
-
+            $(`#current-score-${player}`).text(`Score : ${game[player].score}`)
             clearInterval(timer)
-            $('#main-menu').toggle()
-            // if (level>3) {
-            //     return level=1
-            // } else {
-                // level++
-            // }   
+            $('#main-menu').show()
+            $('#level-section p').text(`Level : 0 `)
+            $('#player').text(`Player : ----- `)
+            $('#score-section p').text(`Score : 0 `)
         }
-    }, 800)
+    }, 700)
 }
 
 function updateTime () {
@@ -143,18 +119,29 @@ function updateTime () {
 
 function resetScore () {
     score = 0
-    time = 15
+    time = 30
 }
 
 function startGame (player) {
-    $('#main-menu').toggle()
+    $('#main-menu').hide()
+    $('#main').hide()
+    $('#game-board').show()
     $('#level-section p').text(`Level : ${game[player].level}`)
+    $('#player').text(`Player : ${game[player].name}`)
+    
     setTimer(player)
     resetScore()
 }
 
-// Step (2) -------------- Event Listener ------------------- //
-
-$('#player-one').on('click', function() {
-    startGame(playerOne)
+$('#read').on('click', function() {
+    $('.read-me').show()
+    $('#main-menu').hide()
+    $('#game-board').hide()
 })
+
+$('#create-player').on('click', function() {
+    $('#main-menu').show()
+    $('.read-me').hide()
+})
+
+

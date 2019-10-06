@@ -2,87 +2,249 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Notable', sans-serif; */
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(223, 110, 17);
-    letter-spacing: 3px; 
-}
+    outline: none;
+    font-family: 'Love Ya Like A Sister', cursive;
 
-html {
-    background-image: url('../image/bg1.jpg');
-    background-repeat: none;
-    background-size: cover;
 }
 
 body {
-    margin: 40px auto;
+    margin: 20px auto;
+    background-image: url('../image/background1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 800px;
+    background-color: #f7f6f244;
+    border-radius: 90px/30px;
+    border: 3px solid white;
+}
+
+/* ============== Aside Section ============  */
+aside {
+    display: flex;
+    flex-basis: 320px;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+.logo {
+    margin-top: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(250, 151, 3);
+    width: 300px;
+    height: 80px;
+    text-shadow: 2px 2px #504747;
+    font-size: 28px;
+    margin-bottom: 20px;
+    background-image: url('../image/Old-Wood-Background.jpg');
+    border-radius: 30px 60px 90px;
+    border: 3px solid white;
+    letter-spacing: 6px;
+}
+
+aside button {
+    display: block;
+    width: 200px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 3px solid rgb(241, 228, 228);
+    box-shadow: 10px 10px 10px grey;
+    border-radius: 120px 90px 60px 30px/30px 60px 90px 120px;
+    font-size: 22px;
+    font-weight: bold;
+    background-image: url('../image/Old-Wood-Background.jpg');
+    color: white;
+    text-shadow: 2px 2px #0e0d0d;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 6px;
+}
+
+/* ============== Aside Section ============  */
+
+/* ================ Main Aria ================ */
 .wrap {
-    background-color: rgba(34, 32, 32, 0.3);
+    flex-basis: 420px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
+/* ----------------------Head------------------------------- */
 header {
     display: flex;
-    margin: 0 auto;
-    width: 80%;
-    height: 100px;
+    margin-top: 10px;
+    padding: 10px 0;
     text-align: center;
     align-items: center;
+    border-radius: 20px 20px 0 0;
+    color: white;
+    letter-spacing: 3px;
+    font-size: 22px;
+    text-shadow: 2px 2px #0e0d0d;
 }
 
 .score-count {
-    padding: 10px;
-    flex-grow: 1;
-    border: 2px solid black;
-    border-radius: 30px;
+    flex: 1.5;
+    margin-right: 10px;
+    padding: 15px 0;
+    background-image: url(../image/Old-Wood-Background.jpg);
+    border-radius: 90px 60px 30px;
+    border: 3px solid white;
 }
 
-.score-game {
-    flex-grow: 1;
+.time-section {
+    flex: 2;
+    padding: 15px 0;
+    background-image: url(../image/Old-Wood-Background.jpg);
+    border-radius: 30px 60px 90px;
+    border: 3px solid white;
 }
-
-.player-name {
-    flex-grow: 1;
-}
-
+/* -----------------------Main------------------------------ */
 main {
-    position: relative;
     margin: 0 auto;
-    width: 360px;
-    height: 700px;
-    background-color: rgba(29, 26, 26, 0.3);
-    border-radius: 10px;
+    position: relative;
+    width: 420px;
+    height: 630px;
+    border-radius: 90px/30px;
+    border: 3px solid white;
+    background-image: url(../image/Old-Wood-Background.jpg);
 }
 
-.main-menu {
+.create-player-menu {
+    display: none;
     margin: 0 auto;
-    width: 360px;
-    height: 700px;
-    background-color: rgba(148, 57, 57, 0.3);
-    border-radius: 10px;
+    height: 630px;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+h2 {
+    text-align: center;
+    padding: 20px;
+}
+
+.form-create {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.input-player {
+    flex: 1;
+    margin-left: 15px;
+    padding: 10px 0 10px 30px;
+    font-size: 15px;
+    font-weight: 800;
+    border: none;
+    border-radius: 60px 0 0 90px;
+    letter-spacing: 3px;
+}
+
+.add-player {
+    margin-right: 15px;
+    width: 140px;
+    border-radius: 0 60px 90px 120px/120px 90px 60px 0;
+    background-image: url(../image/Old-Wood-Background.jpg);
+    border: 2px solid white;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.list-player {
+    display: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.group {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.group:first-child {
+    flex: 1;
+}
+
+.list-player p {
+    flex: 1;
+    padding: 10px 0;
+    margin-left: 40px;
+    color: white;
+}
+
+.start-game {
+    margin-right: 15px;
+    padding: 10px 0;
+    width: 90px;
+    border-radius: 120px 90px 60px 30px/30px 60px 90px 120px;
+    background-color: rgb(146, 23, 23);
+    border: 2px solid white;
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.board {
+    display: none;
+    width: 420px;
+    height: 630px;
+}
+
+.read-me {
+    display: none;
+    width: 420px;
+    height: 630px;
+    padding: 30px;
 }
 
 img {
     width: 70px;
 }
-
+/* -----------------------Footer------------------------------ */
 footer {
     display: flex;
-    margin: 0 auto;
-    width: 80%;
-    height: 100px;
+    margin: 10px 0 20px 0;
     text-align: center;
     align-items: center;
+    color: white;
+    letter-spacing: 3px;
+    font-size: 22px;
+    text-shadow: 2px 2px #0e0d0d;
+    
 }
 
-.time-section {
-    flex: 1;
+
+.player-name {
+    flex: 2;
+    margin-right: 10px;
+    padding: 15px 0;
+    background-image: url(../image/Old-Wood-Background.jpg);
+    border-radius: 60px 90px 30px;
+    border: 3px solid white;
 }
 
 .round-section {
     flex: 1;
+    padding: 15px 0;
+    background-image: url(../image/Old-Wood-Background.jpg);
+    border-radius: 30px 60px 90px;
+    border: 3px solid white;
 }
+
+/* ================ Main Aria ================ */
+
+
 
 .move {
     margin: 0 10px;
@@ -106,10 +268,9 @@ footer {
     100% {transform: translateY(640px)}
 }
 
-.animation-3 {
-    animation-duration: 3s;
+.animation-4 {
+    animation-duration: 4s;
 }
-
 
 .animation-5 {
     animation-duration: 5s;
