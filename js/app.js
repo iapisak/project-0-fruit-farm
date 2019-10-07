@@ -34,22 +34,23 @@ $('#player-list').on('submit', function(event) {
 
     const playlistTemplate = `
         <div class='group'>
-            <p id="delete-${playerId}">${game[playerId].name} : Score : ${game[playerId].score}</p>
+            <p id='current-score-${playerId}'>${game[playerId].name} : Score : ${game[playerId].score}</p>
             <button id="player-${playerId}" class="start-game">Start</button>
         </div>`
     $('#list').append(playlistTemplate)
 
     // Remove 
-    // $(`#delete-${playerId}`).on('click', function() {
-    //     let deleteData = this.id.split("-")[1]
-    //     $(this).parent().remove()
-    //     deleteMe(deleteData)
-    // })
+    $(`#current-score-${playerId}`).on('click', function() {
+        let deleteData = this.id.split("-")[2]
+        $(this).parent().remove()
+        deleteMe(deleteData)
+    })
 
     $(`#player-${playerId}`).on('click', function() {
         let currentPlayer = this.id.split("-")[1]
         startGame(currentPlayer)
     })
+    $('#create-name').val('')
 })
 
 // Game Features
@@ -74,8 +75,8 @@ function createFruits (player) {
     const currentFruitId = createId;   
     let lengthOfStartDrop = Math.floor(Math.random()*5)
     let randomFruits = Math.floor(Math.random()*fruits.length)
-    const templateImage = `<image src="${fruits[`${randomFruits}`].src}" width="50px">`
-    const templateFruits = $(`<div id='${createId}' class='move'>${templateImage}</div>`)
+    const templateImage = `<image src="${fruits[`${randomFruits}`].src}" width="70px">`
+    const templateFruits = $(`<div id='fruits-${createId}' class='move'>${templateImage}</div>`)
     // Need to change Logic
     if (game[player].level === 1) {
         templateFruits.addClass('animation-7')
@@ -93,11 +94,11 @@ function createFruits (player) {
 
     // Remove this fruits when it drop after 8s // or after hit the ground
     setTimeout(()=> {
-        $(`#${currentFruitId}`).remove()
+        $(`#fruits-${currentFruitId}`).remove()
     }, removeFruits)
 
     // Add EventListenr when click get score and remove it
-    $(`#${createId}`).on('click', function(event) {
+    $(`#fruits-${createId}`).on('click', function(event) {
         score++
         $('#score-section p').text(`Score : ${score}`)
         $(this).remove()
