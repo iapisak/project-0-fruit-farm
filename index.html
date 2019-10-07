@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Delius+Swash+Caps|Mali|Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Fredericka+the+Great|Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
     <script defer src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
@@ -18,8 +20,9 @@
                 <h1>Fruits Farm</h1>
             </section>
             <button id="create-player"><span>Player</span></button>
-            <button><span>Score</span></button>
+            <button id='score-player'><span>Score</span></button>
             <button id="read"><span>Read Me</span></button>
+            <button id="back-to-Game"><span>Back to Game</span></button>
         </aside>
 
         <div class='wrap'>
@@ -36,13 +39,17 @@
             <main>
                 <div id='main-menu' class='create-player-menu'>
                     <h2>Create Player</h2>
-                    <form id="player-list" class='form-create' autocomplete="off">
+                    <form id="player-list" class='form-create' autocomplete="off"> 
                         <input id="create-name" class='input-player' type="text">
                         <button type="submit" class='add-player'> Add Player </button>
                     </form>
                     <div id="list" class='list-player'></div>
                 </div>
                 <div id='game-board' class='board'></div>
+                <div class='score-section'>
+                    <h2>Score Game</h2>
+                    <div id='score-board' class='score-board'></div>
+                </div>
                 <div class='read-me'>
                     <h1>Read me</h1>
                 </div>

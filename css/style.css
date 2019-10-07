@@ -3,25 +3,31 @@
     padding: 0;
     box-sizing: border-box;
     outline: none;
-    font-family: 'Love Ya Like A Sister', cursive;
+    /* font-family: 'Love Ya Like A Sister', cursive; */
+    /* font-family: 'Fredoka One', cursive; */
+    /* font-family: 'Fredericka the Great', cursive; */
+    /* font-family: 'Pangolin', cursive; */
+    /* font-family: 'Mali', cursive; */
+    font-family: 'Delius Swash Caps', cursive;
 
 }
 
 body {
-    margin: 20px auto;
-    background-image: url('../image/background1.jpg');
-    background-repeat: no-repeat;
+    margin: 60px auto;
+    background-image: url('../image/garden.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .container {
     display: flex;
     justify-content: center;
     margin: 0 auto;
+    background-color: rgba(49, 40, 40, 0.322);
     width: 800px;
-    background-color: #f7f6f244;
     border-radius: 90px/30px;
-    border: 3px solid white;
 }
 
 /* ============== Aside Section ============  */
@@ -38,16 +44,16 @@ aside {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(250, 151, 3);
+    color: rgb(204, 172, 195);
     width: 300px;
     height: 80px;
-    text-shadow: 2px 2px #504747;
+    text-shadow: 2px 2px #0f0f0f;
     font-size: 28px;
     margin-bottom: 20px;
-    background-image: url('../image/Old-Wood-Background.jpg');
+    background-color: rgb(13, 50, 92);
     border-radius: 30px 60px 90px;
-    border: 3px solid white;
-    letter-spacing: 6px;
+    border: 3px solid rgb(223, 215, 221);
+    letter-spacing: 2px;
 }
 
 aside button {
@@ -55,17 +61,26 @@ aside button {
     width: 200px;
     margin-bottom: 15px;
     padding: 10px;
-    border: 3px solid rgb(241, 228, 228);
-    box-shadow: 10px 10px 10px grey;
+    border: 3px solid rgb(13, 50, 92);
+    box-shadow: 10px 10px 10px rgb(32, 31, 31);
     border-radius: 120px 90px 60px 30px/30px 60px 90px 120px;
-    font-size: 22px;
-    font-weight: bold;
-    background-image: url('../image/Old-Wood-Background.jpg');
-    color: white;
-    text-shadow: 2px 2px #0e0d0d;
+    font-size: 25px;
+    font-weight: 800;
+    background-color: rgb(204, 172, 195);
+    /* background-image: url('../image/gradient-red.jpg'); */
+    background-size: cover;
+    /* background-color: #F7C331; */
+    color: rgb(13, 50, 92);
+    text-shadow: 2px 2px #a9b3c0;
     text-align: center;
     cursor: pointer;
-    letter-spacing: 6px;
+    letter-spacing: 2px;
+}
+
+aside button:hover { 
+    transform: scale(1.1); 
+    box-shadow: 10px 10px 10px rgb(63, 40, 40);
+    opacity: 0.8;
 }
 
 /* ============== Aside Section ============  */
@@ -86,27 +101,28 @@ header {
     text-align: center;
     align-items: center;
     border-radius: 20px 20px 0 0;
-    color: white;
+    color: rgb(13, 50, 92);
+    text-shadow: 2px 2px #a9b3c0;
     letter-spacing: 3px;
     font-size: 22px;
-    text-shadow: 2px 2px #0e0d0d;
+    font-weight: 800;
 }
 
 .score-count {
     flex: 1.5;
     margin-right: 10px;
     padding: 15px 0;
-    background-image: url(../image/Old-Wood-Background.jpg);
+    background-color: rgb(204, 172, 195);
     border-radius: 90px 60px 30px;
-    border: 3px solid white;
+    border: 4px solid rgb(13, 50, 92);
 }
 
 .time-section {
     flex: 2;
     padding: 15px 0;
-    background-image: url(../image/Old-Wood-Background.jpg);
+    background-color: rgb(204, 172, 195);
     border-radius: 30px 60px 90px;
-    border: 3px solid white;
+    border: 4px solid rgb(13, 50, 92);
 }
 /* -----------------------Main------------------------------ */
 main {
@@ -115,15 +131,15 @@ main {
     width: 420px;
     height: 630px;
     border-radius: 90px/30px;
-    border: 3px solid white;
-    background-image: url(../image/Old-Wood-Background.jpg);
+    border: 4px solid rgb(209, 214, 219);
 }
+
 
 .create-player-menu {
     display: none;
     margin: 0 auto;
     height: 630px;
-    color: white;
+    color: rgb(17, 12, 12);
     letter-spacing: 2px;
     font-size: 15px;
 }
@@ -142,9 +158,13 @@ h2 {
     flex: 1;
     margin-left: 15px;
     padding: 10px 0 10px 30px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 800;
+    text-shadow: 2px 2px #a3b4ca;
     border: none;
+    background-color: rgb(203, 191, 207);
+    color: rgb(13, 50, 92);
+    border: 1px solid rgb(13, 50, 92);
     border-radius: 60px 0 0 90px;
     letter-spacing: 3px;
 }
@@ -153,11 +173,17 @@ h2 {
     margin-right: 15px;
     width: 140px;
     border-radius: 0 60px 90px 120px/120px 90px 60px 0;
-    background-image: url(../image/Old-Wood-Background.jpg);
-    border: 2px solid white;
-    color: white;
+    background-color: rgb(13, 50, 92);
+    border: 1px solid rgb(13, 50, 92);
+    color: rgb(168, 140, 177);
     font-size: 20px;
     font-weight: 800;
+    cursor: pointer;
+}
+
+.add-player:hover { 
+    transform: scale(1.1); 
+    box-shadow: 10px 10px 10px rgb(63, 40, 40);
 }
 
 .list-player {
@@ -170,17 +196,26 @@ h2 {
     display: flex;
     margin-bottom: 10px;
     font-size: 20px;
-}
-
-.group:first-child {
-    flex: 1;
+    
 }
 
 .list-player p {
     flex: 1;
-    padding: 10px 0;
-    margin-left: 40px;
-    color: white;
+    padding: 8px 10px 8px 30px;
+    margin: 0 10px;
+    color: rgb(168, 140, 177);
+    text-shadow: 2px 2px #232931;
+    background-color: rgb(13, 50, 92);
+    border-radius: 60px 90px 20px 90px;
+}
+
+.group p {
+    cursor: pointer;
+}
+
+.group p:hover { 
+    transform: scale(1.1); 
+    box-shadow: 10px 10px 10px rgb(194, 184, 184);
 }
 
 .start-game {
@@ -188,17 +223,28 @@ h2 {
     padding: 10px 0;
     width: 90px;
     border-radius: 120px 90px 60px 30px/30px 60px 90px 120px;
-    background-color: rgb(146, 23, 23);
-    border: 2px solid white;
-    color: white;
+    background-color: rgb(168, 140, 177);
+    border: 2px solid rgb(13, 50, 92);
+    color: rgb(13, 50, 92);
     font-size: 15px;
     font-weight: 800;
+    cursor: pointer;
+}
+
+h2 {
+    color: rgb(168, 140, 177);
+    text-shadow: 2px 2px #1a1a1b;
+}
+.start-game:hover { 
+    transform: scale(1.1); 
+    box-shadow: 10px 10px 10px rgb(38, 28, 28);
 }
 
 .board {
     display: none;
     width: 420px;
     height: 630px;
+    color: #0e0d0d;
 }
 
 .read-me {
@@ -217,11 +263,11 @@ footer {
     margin: 10px 0 20px 0;
     text-align: center;
     align-items: center;
-    color: white;
+    color: rgb(13, 50, 92);
+    text-shadow: 2px 2px #a9b3c0;
     letter-spacing: 3px;
     font-size: 22px;
-    text-shadow: 2px 2px #0e0d0d;
-    
+    font-weight: 800;
 }
 
 
@@ -229,17 +275,42 @@ footer {
     flex: 2;
     margin-right: 10px;
     padding: 15px 0;
-    background-image: url(../image/Old-Wood-Background.jpg);
+    background-color: rgb(204, 172, 195);
     border-radius: 60px 90px 30px;
-    border: 3px solid white;
+    border: 4px solid rgb(13, 50, 92);
 }
 
 .round-section {
     flex: 1;
     padding: 15px 0;
-    background-image: url(../image/Old-Wood-Background.jpg);
+    background-color: rgb(204, 172, 195);
     border-radius: 30px 60px 90px;
-    border: 3px solid white;
+    border: 4px solid rgb(13, 50, 92);
+}
+
+.score-section {
+    display: none;
+}
+
+.score-board {
+    padding: 15px 0;
+}
+
+.score-board div {
+    text-align: center;
+    margin: 0 25px;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: rgb(13, 50, 92);
+    border-radius: 30px 60px 90px;
+    border: 3px solid rgb(168, 140, 177);
+    color: rgb(168, 140, 177);
+    font-size: 20px;
+}
+
+.score-board div:hover { 
+    transform: scale(1.1); 
+    box-shadow: 10px 10px 10px rgb(240, 236, 236);
 }
 
 /* ================ Main Aria ================ */

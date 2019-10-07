@@ -20,19 +20,32 @@ let score = 0
 let total = 0
 let level = 1
 
+
+function deleteMe (deleteMe) {
+    game.splice(deleteMe, 1)
+}
+
 // ============ Main Menu Features ============== //
 $('#player-list').on('submit', function(event) {
     event.preventDefault()
     let playerId = game.length
     const player = new Player($('#create-name').val())
     game.push(player)
+
     const playlistTemplate = `
         <div class='group'>
-            <p>- ${game[playerId].name} -</p>
-            <p id='current-score-${playerId}'>Score : ${game[playerId].score}</p>
+            <p id="delete-${playerId}">${game[playerId].name} : Score : ${game[playerId].score}</p>
             <button id="player-${playerId}" class="start-game">Start</button>
         </div>`
     $('#list').append(playlistTemplate)
+
+    // Remove 
+    // $(`#delete-${playerId}`).on('click', function() {
+    //     let deleteData = this.id.split("-")[1]
+    //     $(this).parent().remove()
+    //     deleteMe(deleteData)
+    // })
+
     $(`#player-${playerId}`).on('click', function() {
         let currentPlayer = this.id.split("-")[1]
         startGame(currentPlayer)
@@ -102,9 +115,11 @@ function setTimer (player) {
             $('#game-board').children().remove()
             game[player].score+=score
             game[player].level++
-            $(`#current-score-${player}`).text(`Score : ${game[player].score}`)
+            $(`#current-score-${player}`).text(`${game[player].name} : Score : ${game[player].score}`)
             clearInterval(timer)
-            $('#main-menu').show()
+            $('#game-board').hide()
+            $('.score-section').show()
+            updateScore()
             $('#level-section p').text(`Level : 0 `)
             $('#player').text(`Player : ----- `)
             $('#score-section p').text(`Score : 0 `)
@@ -133,15 +148,44 @@ function startGame (player) {
     resetScore()
 }
 
+function updateScore () {
+    $('#score-board').empty()
+    for (let i=0; i<game.length; i++) {
+    const printScore = `
+    <div>${game[i].name}  Score : ${game[i].score}  Level : ${game[i].level}`
+    $('#score-board').append(printScore)
+    }
+}
+
 $('#read').on('click', function() {
-    $('.read-me').show()
     $('#main-menu').hide()
     $('#game-board').hide()
+    $('.score-section').hide()
+    $('.read-me').show()
 })
 
 $('#create-player').on('click', function() {
-    $('#main-menu').show()
     $('.read-me').hide()
+    $('.score-section').hide()
+    $('#game-board').hide()
+    $('#main-menu').show()
+})
+
+$('#score-player').on('click', function() {
+    $('#main-menu').hide()
+    $('.read-me').hide()
+    $('#game-board').hide()
+    $('#score-board').empty()
+    updateScore()
+    $('.score-section').show()
+    
+})
+
+$('#back-to-Game').on('click', function() {
+    $('#main-menu').hide()
+    $('.read-me').hide()
+    $('.score-section').hide()
+    $('#game-board').show()
 })
 
 
