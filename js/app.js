@@ -13,7 +13,7 @@ const fruits = [
     {name: 'Watermelon', src: './image/Watermelon.png'}
 ]
 
-let time = 30
+let time = 60
 let createId = 0
 let removeFruits
 let score = 0
@@ -21,8 +21,8 @@ let total = 0
 let level = 1
 
 
-function deleteMe (deleteMe) {
-    game.splice(deleteMe, 1)
+function deleteMe (deleteData) {
+    game.splice(deleteData, 1)
 }
 
 // ============ Main Menu Features ============== //
@@ -31,7 +31,7 @@ $('#player-list').on('submit', function(event) {
     let playerId = game.length
     const player = new Player($('#create-name').val())
     game.push(player)
-
+    $('#create-name').val('')
     const playlistTemplate = `
         <div class='group'>
             <p id='current-score-${playerId}'>${game[playerId].name} : Score : ${game[playerId].score}</p>
@@ -43,6 +43,7 @@ $('#player-list').on('submit', function(event) {
     $(`#current-score-${playerId}`).on('click', function() {
         let deleteData = this.id.split("-")[2]
         $(this).parent().remove()
+        console.log(deleteData)
         deleteMe(deleteData)
     })
 
@@ -50,7 +51,7 @@ $('#player-list').on('submit', function(event) {
         let currentPlayer = this.id.split("-")[1]
         startGame(currentPlayer)
     })
-    $('#create-name').val('')
+    
 })
 
 // Game Features
@@ -135,7 +136,7 @@ function updateTime () {
 
 function resetScore () {
     score = 0
-    time = 30
+    time = 60
 }
 
 function startGame (player) {
@@ -188,5 +189,3 @@ $('#back-to-Game').on('click', function() {
     $('.score-section').hide()
     $('#game-board').show()
 })
-
-
