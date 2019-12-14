@@ -1,9 +1,12 @@
-## Friut-Farm
+## Fruit-Farm
 ### About 
-- A game I created in first week I started GA. Designed for multi-user, check score and play. the game is easy to play. Create a player name, then click start. fruits will drop from the screen. There is score on the top and timing in the bottom. Hope you enjoy it!.
+- Fruit-Farm is a game I created during my first week of starting General Assembly. Designed for multi-user, check score and play. The game is easy to play. 
+
+### How to play
+- To start playing the game, first enter the player names, and  click start. Fruit will drop from the top of the screen, which you need to clik on to start accomuliting points. The objective of the game is to collect more fruit that your opponent. The higher score wins. I hope you enjoy it!
 
 ### Project
- https://pages.git.generalassemb.ly/potisanmetee/projectZero/
+https://iapisak.github.io/project-0-fruit-farm/
 
 ---
 ### Tech :
